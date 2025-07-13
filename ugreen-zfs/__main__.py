@@ -78,6 +78,7 @@ def update_in_loop():
       while True:
             update_smart_status()
             update_zpool_status()
+            update_network_status()
             time.sleep(2)
 
 if __name__ == '__main__':
