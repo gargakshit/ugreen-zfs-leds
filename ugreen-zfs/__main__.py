@@ -1,5 +1,6 @@
 import time
 
+from .connectivity import *
 from .led import *
 from .smart import *
 from .zpool import *
@@ -12,6 +13,7 @@ DISK_LED_MAPPING = {
 }
 
 ZPOOL_NAME = "storage"
+SINGLESTACK = False
 
 def update_smart_status():
       for disk, led_name in DISK_LED_MAPPING.items():
@@ -51,6 +53,26 @@ def update_zpool_status():
             led.set_color(RGB(255, 0, 0))
             led.turn_on_solid()
             print(f"ZPool {ZPOOL_NAME} is {state}")
+
+def update_network_status():
+      led = UgreenLed(LED_NETDEV)
+      connectivity = Connectivity(SINGLESTACK).check()
+      
+      if connectivity == CONNECTIVITY_DUALSTACK:
+            led.set_color(RGB(0, 255, 0))
+            led.turn_on_solid()
+      elif connectivity == CONNECTIVITY_SINGLESTACK:
+            if SINGLESTACK:
+                  led.set_color(RGB(0, 255, 0))
+                  led.turn_on_solid()
+            else:
+                  led.set_color(RGB(255, 121, 0))
+                  led.turn_on_breathing(500, 500)
+                  print("Network is singlestack")
+      else:
+            led.set_color(RGB(255, 0, 0))
+            led.turn_on_solid()
+            print("Network is down")
 
 def update_in_loop():
       while True:
