@@ -56,7 +56,7 @@ def update_zpool_status():
 
 def update_network_status():
       led = UgreenLed(LED_NETDEV)
-      connectivity = Connectivity(SINGLESTACK).check()
+      connectivity = Connectivity().check()
       
       if connectivity == CONNECTIVITY_DUALSTACK:
             led.set_color(RGB(0, 255, 0))
