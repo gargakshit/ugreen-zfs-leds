@@ -42,12 +42,15 @@ def update_zpool_status():
       elif state == ZPOOL_STATE_DEGRADED:
             led.set_color(RGB(255, 121, 0))
             led.turn_on_breathing(500, 500)
+            print(f"ZPool {ZPOOL_NAME} is degraded")
       elif state == ZPOOL_STATE_FAULTED:
             led.set_color(RGB(255, 0, 0))
             led.turn_on_blinking(500, 500)
+            print(f"ZPool {ZPOOL_NAME} is faulted")
       else:
             led.set_color(RGB(255, 0, 0))
             led.turn_on_solid()
+            print(f"ZPool {ZPOOL_NAME} is {state}")
 
 def update_in_loop():
       while True:
