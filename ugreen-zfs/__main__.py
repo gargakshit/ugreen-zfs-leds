@@ -7,7 +7,7 @@ DISK_LED_MAPPING = {
       "/dev/disk/by-path/pci-0000:01:00.0-ata-1": LED_DISK1,
       "/dev/disk/by-path/pci-0000:01:00.0-ata-2": LED_DISK2,
       "/dev/disk/by-path/pci-0000:01:00.0-ata-3": LED_DISK3,
-      "/dev/disk/by-path/pci-0000:01:00.0-ata-4": LED_DISK4,
+      "/dev/disk/by-path/pci-0000:01:00.0-ata-6": LED_DISK4,
 }
 
 def update_smart_status():
