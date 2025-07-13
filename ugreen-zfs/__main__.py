@@ -62,7 +62,7 @@ def update_network_status():
             led.set_color(RGB(0, 255, 0))
             led.turn_on_solid()
       elif connectivity == CONNECTIVITY_SINGLESTACK:
-            if not SINGLESTACK:
+            if SINGLESTACK:
                   led.set_color(RGB(0, 255, 0))
                   led.turn_on_solid()
             else:
