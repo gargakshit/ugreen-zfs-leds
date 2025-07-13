@@ -14,7 +14,7 @@ class RGB:
         self.b = b
     
     def cli_args(self):
-        return ["color", self.r, self.g, self.b]
+        return ["color", str(self.r), str(self.g), str(self.b)]
 
 class UgreenLed:
     def __init__(self, led_name, cli_path = "ugreen_leds_cli"):
