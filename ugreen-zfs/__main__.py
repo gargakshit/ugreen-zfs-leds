@@ -56,7 +56,7 @@ def update_in_loop():
       while True:
             update_smart_status()
             update_zpool_status()
-            time.sleep(5)
+            time.sleep(2)
 
 if __name__ == '__main__':
       update_in_loop()
