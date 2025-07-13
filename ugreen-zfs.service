@@ -1,0 +1,13 @@
+[Unit]
+Description=Ugreen ZFS LEDs
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/local/bin/ugreen-zfs
+ExecStart=/usr/bin/python3 -m ugreen-zfs
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
