@@ -1,3 +1,4 @@
+import os
 import time
 
 from .connectivity import *
@@ -12,8 +13,8 @@ DISK_LED_MAPPING = {
       "/dev/disk/by-path/pci-0000:01:00.0-ata-4": LED_DISK4,
 }
 
-ZPOOL_NAME = "storage"
-SINGLESTACK = False
+ZPOOL_NAME = os.environ.get("LED_ZPOOL_NAME", "storage")
+SINGLESTACK = os.environ.get("LED_SINGLESTACK", "false").lower() == "true"
 
 def update_smart_status():
       for disk, led_name in DISK_LED_MAPPING.items():
@@ -81,5 +82,14 @@ def update_in_loop():
             update_network_status()
             time.sleep(2)
 
+def print_config():
+      print(f"LED_ZPOOL_NAME={ZPOOL_NAME}")
+      print(f"LED_SINGLESTACK={SINGLESTACK}")
+
+      print("Monitored disks:")
+      for disk in DISK_LED_MAPPING.keys():
+            print(f"  {disk}")
+
 if __name__ == '__main__':
+      print_config()
       update_in_loop()

@@ -5,6 +5,7 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/usr/local/bin/ugreen-zfs-leds
+EnvironmentFile=/etc/default/ugreen-zfs-leds
 ExecStart=/usr/bin/python3 -m ugreen-zfs-leds
 Restart=always
 RestartSec=10
