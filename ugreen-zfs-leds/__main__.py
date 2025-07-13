@@ -15,6 +15,7 @@ DISK_LED_MAPPING = {
 
 ZPOOL_NAME = os.environ.get("LED_ZPOOL_NAME", "storage")
 SINGLESTACK = os.environ.get("LED_SINGLESTACK", "false").lower() == "true"
+POLL_INTERVAL = os.environ.get("LED_POLL_INTERVAL", "2")
 
 def update_smart_status():
       for disk, led_name in DISK_LED_MAPPING.items():
@@ -80,9 +81,10 @@ def update_in_loop():
             update_smart_status()
             update_zpool_status()
             update_network_status()
-            time.sleep(2)
+            time.sleep(int(POLL_INTERVAL))
 
 def print_config():
+      print(f"LED_POLL_INTERVAL={POLL_INTERVAL}")
       print(f"LED_ZPOOL_NAME={ZPOOL_NAME}")
       print(f"LED_SINGLESTACK={SINGLESTACK}")
 
