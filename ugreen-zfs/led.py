@@ -19,6 +19,7 @@ class RGB:
 class UgreenLed:
     def __init__(self, led_name, cli_path = "ugreen_leds_cli"):
         self.led_name = led_name
+        self.cli_path = cli_path
     
     def set_color(self, color):
         subprocess.run([self.cli_path, self.led_name, color.cli_args()])
