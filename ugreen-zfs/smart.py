@@ -18,5 +18,5 @@ class SMART:
             return SMART_STATUS_UNAVAILABLE
         
         passed = output["smart_status"]["passed"]
-        return SMART_STATUS_PASSING if not passed else SMART_STATUS_FAILING
+        return SMART_STATUS_PASSING if passed else SMART_STATUS_FAILING
 

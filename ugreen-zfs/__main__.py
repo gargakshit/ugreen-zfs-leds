@@ -19,7 +19,7 @@ def update_smart_status():
                   led.set_color(RGB(0, 255, 0))
                   led.turn_on_solid()
             elif smart_status == SMART_STATUS_FAILING:
-                  led.set_color(RGB(255, 140, 0))
+                  led.set_color(RGB(255, 121, 0))
                   led.turn_on_breathing(500, 500)
             else:
                   led.set_color(RGB(255, 0, 0))
