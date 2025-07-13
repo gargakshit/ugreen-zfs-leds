@@ -14,7 +14,7 @@ class RGB:
         self.b = b
     
     def cli_args(self):
-        return f"-color {self.r} {self.g} {self.b}"
+        return ["color", self.r, self.g, self.b]
 
 class UgreenLed:
     def __init__(self, led_name, cli_path = "ugreen_leds_cli"):
@@ -22,7 +22,7 @@ class UgreenLed:
         self.cli_path = cli_path
     
     def set_color(self, color):
-        subprocess.run([self.cli_path, self.led_name, color.cli_args()])
+        subprocess.run([self.cli_path, self.led_name] + color.cli_args())
     
     def turn_on_solid(self):
         subprocess.run([self.cli_path, self.led_name, "-on"])
