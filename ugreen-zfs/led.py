@@ -31,7 +31,7 @@ class UgreenLed:
         subprocess.run([self.cli_path, self.led_name, "-off"])
     
     def turn_on_blinking(self, on_interval, off_interval):
-        subprocess.run([self.cli_path, self.led_name, "-blink", on_interval, off_interval])
+        subprocess.run([self.cli_path, self.led_name, "-blink", str(on_interval), str(off_interval)])
     
     def turn_on_breathing(self, on_interval, off_interval):
-        subprocess.run([self.cli_path, self.led_name, "-breath", on_interval, off_interval])
+        subprocess.run([self.cli_path, self.led_name, "-breath", str(on_interval), str(off_interval)])
