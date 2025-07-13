@@ -16,6 +16,8 @@ class ZPool:
         output = zpool_status.stdout.decode("utf-8")
         
         for line in output.split("\n"):
+            line = line.strip()
+
             if line.startswith("state:"):
                 state = line.split()[1].strip()
                 if state == "ONLINE":
