@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/usr/local/bin/ugreen-zfs
-ExecStart=/usr/bin/python3 -m ugreen-zfs
+WorkingDirectory=/usr/local/bin/ugreen-zfs-leds
+ExecStart=/usr/bin/python3 -m ugreen-zfs-leds
 Restart=always
 RestartSec=10
 
