@@ -93,5 +93,8 @@ def print_config():
             print(f"  {disk}")
 
 if __name__ == '__main__':
-      print_config()
-      update_in_loop()
+      try:
+            print_config()
+            update_in_loop()
+      except KeyboardInterrupt:
+            print("Exiting")
